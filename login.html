@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Minecraft OtoSat Bot - Giriş</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 100%;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 1em;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2em;
+            color: #667eea;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .btn-login:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #fecaca;
+        }
+
+        .alert-success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #a7f3d0;
+        }
+
+        .alert-icon {
+            margin-right: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #667eea;
+            user-select: none;
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .features {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .feature-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 40px 25px;
+            }
+
+            .logo h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>🤖 OtoSat Bot</h1>
+            <p>Minecraft Otomatik Satış Sistemi</p>
+        </div>
+
+        <div id="alertBox" class="alert"></div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">👤</span>
+                    <input 
+                        type="text" 
+                        id="username" 
+                        name="username" 
+                        placeholder="Kullanıcı adınızı girin"
+                        required
+                        autocomplete="username"
+                    >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Şifre</label>
+                <div class="input-wrapper">
+                    <span class="input-icon">🔒</span>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Şifrenizi girin"
+                        required
+                        autocomplete="current-password"
+                    >
+                    <span class="password-toggle" onclick="togglePassword()">👁️</span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-login" id="loginBtn">
+                🚀 Giriş Yap
+            </button>
+
+            <div class="loading-spinner" id="loadingSpinner"></div>
+        </form>
+
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">🎮</div>
+                <div>Otomatik kaktüs satış sistemi</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📊</div>
+                <div>Canlı istatistik ve kazanç takibi</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💬</div>
+                <div>Discord webhook entegrasyonu</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🔒 Güvenli Bağlantı | © 2024 OtoSat Bot</p>
+        </div>
+    </div>
+
+    <script>
+        function showAlert(message, type) {
+            const alertBox = document.getElementById('alertBox');
+            const icon = type === 'error' ? '❌' : '✅';
+            
+            alertBox.className = `alert alert-${type}`;
+            alertBox.innerHTML = `<span class="alert-icon">${icon}</span>${message}`;
+            alertBox.style.display = 'block';
+            
+            setTimeout(() => {
+                alertBox.style.display = 'none';
+            }, 5000);
+        }
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.querySelector('.password-toggle');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = '👁️';
+            }
+        }
+
+        async function handleLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('loginBtn');
+            const spinner = document.getElementById('loadingSpinner');
+            
+            if (!username || !password) {
+                showAlert('Lütfen tüm alanları doldurun!', 'error');
+                return;
+            }
+            
+            // Disable button and show loading
+            loginBtn.disabled = true;
+            loginBtn.style.display = 'none';
+            spinner.style.display = 'block';
+            
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showAlert('Giriş başarılı! Yönlendiriliyorsunuz...', 'success');
+                    
+                    setTimeout(() => {
+                        window.location.href = '/dashboard';
+                    }, 1000);
+                } else {
+                    showAlert(data.message || 'Giriş başarısız!', 'error');
+                    loginBtn.disabled = false;
+                    loginBtn.style.display = 'block';
+                    spinner.style.display = 'none';
+                }
+            } catch (error) {
+                showAlert('Bağlantı hatası! Lütfen tekrar deneyin.', 'error');
+                loginBtn.disabled = false;
+                loginBtn.style.display = 'block';
+                spinner.style.display = 'none';
+            }
+        }
+
+        // Enter tuşu ile form gönderme
+        document.getElementById('password').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                handleLogin(event);
+            }
+        });
+
+        // Sayfa yüklendiğinde kullanıcı adı alanına focus
+        window.addEventListener('load', () => {
+            document.getElementById('username').focus();
+        });
+    </script>
+</body>
+</html>

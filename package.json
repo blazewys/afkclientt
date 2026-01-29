@@ -1,0 +1,35 @@
+{
+  "name": "minecraft-afk-client-bot",
+  "version": "2.0.0",
+  "description": "Minecraft AFK Client Bot - Web Dashboard",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "minecraft",
+    "bot",
+    "mineflayer",
+    "afk",
+    "client",
+    "dashboard",
+    "railway"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "ws": "^8.14.2",
+    "mineflayer": "^4.17.0",
+    "mineflayer-pathfinder": "^2.4.4",
+    "axios": "^1.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
